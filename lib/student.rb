@@ -33,7 +33,7 @@ class Student
   end
 
   def self.count_all_students_in_grade_9
-    DB[:conn].execute("SELECT COUNT(*) FROM students WHERE grade='9th'")[0].flatten
+    DB[:conn].execute("SELECT COUNT(*) FROM students WHERE grade=9")[0].flatten
   end
 
   def self.students_below_12th_grade
