@@ -23,6 +23,10 @@ class Student
     DB[:conn].execute("SELECT COUNT(*) FROM students WHERE grade='9th'")[0].flatten
   end
 
+  def self.count_all_students_in_grade_9
+    DB[:conn].execute("SELECT * FROM students WHERE CAST(grade AS INTEGER) < 12")
+  end
+
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
