@@ -24,11 +24,11 @@ class Student
   end
 
   def self.first_X_students_in_grade_10(num)
-    DB[:conn].execute("SELECT * FROM students WHERE grade='10th' LIMIT ?", num)
+    DB[:conn].execute("SELECT * FROM students WHERE grade='10' LIMIT ?", num)
   end
 
   def self.first_student_in_grade_10
-    first_student = DB[:conn].execute("SELECT * FROM students WHERE grade='10th' LIMIT 1")
+    first_student = DB[:conn].execute("SELECT * FROM students WHERE grade='10' LIMIT 1")
     self.new_from_db(first_student)
   end
 
