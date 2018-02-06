@@ -36,6 +36,10 @@ class Student
     DB[:conn].execute("SELECT COUNT(*) FROM students WHERE grade=9")[0].flatten
   end
 
+  def self.all_students_in_grade_X(grade)
+    DB[:conn].execute("SELECT * FROM students WHERE grade=?", grade)
+  end
+
   def self.students_below_12th_grade
     DB[:conn].execute("SELECT * FROM students WHERE CAST(grade AS INTEGER) < 12")
   end
