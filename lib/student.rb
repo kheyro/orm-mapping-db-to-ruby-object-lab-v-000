@@ -1,6 +1,8 @@
 class Student
   attr_accessor :id, :name, :grade
-
+  
+  @@all = []
+  
   def self.new_from_db(row)
     student = self.new
     student.id = row[0]
@@ -11,7 +13,7 @@ class Student
 
   def self.all
     DB[:conn].execute("SELECT * FROM students").map { |student|
-      self.new_from_db(student)
+      @@all << self.new_from_db(student)
     }
   end
 
