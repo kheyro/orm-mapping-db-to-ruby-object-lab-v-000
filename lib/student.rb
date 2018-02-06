@@ -26,6 +26,10 @@ class Student
   def self.first_X_students_in_grade_10(num)
     DB[:conn].execute("SELECT * FROM students WHERE grade='10th' LIMIT ?", num)
   end
+  
+  def self.first_student_in_grade_10
+    DB[:conn].execute("SELECT * FROM students WHERE grade='10th' LIMIT 1", num)
+  end
 
   def self.count_all_students_in_grade_9
     DB[:conn].execute("SELECT COUNT(*) FROM students WHERE grade='9th'")[0].flatten
