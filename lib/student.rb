@@ -14,7 +14,8 @@ class Student
   def self.all
     DB[:conn].execute("SELECT * FROM students").map { |student|
       @@all << self.new_from_db(student)
-    }\@all
+    }
+    @@all
   end
 
   def self.find_by_name(name)
